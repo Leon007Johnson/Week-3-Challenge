@@ -11,51 +11,56 @@ function writePassword() {
 }
 function generatePassword () {
   
-// Variables - creating available characters to select
+// Variables - creating all available characters to select
   var lowercase = "abcdefghijklmnopqrstuvwxyz";
   var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var numbers = "0123456789";
   var special = "!$%#&'(),-*£/:;=<>@[{]}";
 
+  var lwercase = confirm ("Would you like lowercase letters?");
+  var upprcase = confirm ("Would you like uppercase letters?");
+  var nmbers = confirm ("Would you like any numbers?");
+  var spcial = confirm ("Would you like to have any special charatcers?");
+  alert ("please select at least one character");
 
   //setting password length
-  var passwordLength = prompt ("How long would you like your password to be?")
+  var passwordLength = prompt ("How long would you like your password to be, needs to be between 8 and 128 characters?");
 
-  if (passwordLength < 9 ) {
-    alert ("This can not be lower than 9")
-    return
+  if (passwordLength < 8 ) {
+    alert ("This can not be lower than 8")
+    return "";
   }
   
-  if (passwordLength > 60) {
-    alert ("This can not be higher than 60")
-    return
+  if (passwordLength > 128) {
+    alert ("This can not be higher than 128")
+    return "";
   }
   
   var passwordCharacters = "";
   
+  
+  
   //setting character preference
-  var upprcase = confirm ("Would you like uppercase letters?")
+  
 
-  if (uppercase) {
+  if (upprcase) {
     passwordCharacters += uppercase;
   } 
 
 
-  var lwercase = confirm ("Would you like lowercase letters?")
+  
 
-  if (lowercase) {
+  if (lwercase) {
     passwordCharacters += lowercase;
   }
 
-  var nmbers = confirm ("Would you like any numbers?")
   
-  if (numbers) {
+  
+  if (nmbers) {
     passwordCharacters += numbers;
   }
 
-  var spcial = confirm ("Would you like to have any special charatcers?")
-
-  if (special) {
+  if (spcial) {
     passwordCharacters += special;
   } 
   
@@ -63,9 +68,10 @@ function generatePassword () {
   var password = "";
 
   for (var i = 0; i < passwordLength; i++) {
-    password += passwordCharacters.charAt(Math.floor(math.random() * passwordCharacters.length));
+    password += passwordCharacters.charAt(Math.floor(Math.random() * passwordCharacters.length));
   }
   
+  console.log(password);
   return password;
   
 }
