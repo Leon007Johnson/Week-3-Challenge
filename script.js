@@ -11,7 +11,7 @@ function writePassword() {
 }
 function generatePassword () {
   
-
+// Variables - creating available characters to select
   var lowercase = "abcdefghijklmnopqrstuvwxyz";
   var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var numbers = "0123456789";
@@ -33,32 +33,33 @@ function generatePassword () {
   
   var passwordCharacters = "";
   
-  //setting uppercase preference
-  var uppercase = confirm ("Would you like have uppercase letters?")
+  //setting character preference
+  var upprcase = confirm ("Would you like uppercase letters?")
 
   if (uppercase) {
     passwordCharacters += uppercase;
   } 
 
 
-  var lowercase = confirm ("Would you like to have lowercase letters?")
+  var lwercase = confirm ("Would you like lowercase letters?")
 
   if (lowercase) {
     passwordCharacters += lowercase;
   }
 
-  var numbers = confirm ("Would you like to have any numbers?")
+  var nmbers = confirm ("Would you like any numbers?")
   
   if (numbers) {
     passwordCharacters += numbers;
   }
 
-  var special = confirm ("Would you like to have any special charatcers?")
+  var spcial = confirm ("Would you like to have any special charatcers?")
 
   if (special) {
     passwordCharacters += special;
   } 
   
+  //Creating password variable
   var password = "";
 
   for (var i = 0; i < passwordLength; i++) {
@@ -66,6 +67,7 @@ function generatePassword () {
   }
   
   return password;
+  
 }
 
 
